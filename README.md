@@ -84,7 +84,6 @@ My setup is shown as follows:
 
 ## Installation
 Once no error is shown in CMake, run
-
 ```
 cd build/
 make -j`nproc`
@@ -93,9 +92,18 @@ Make sure the installation completed without error then you are good to go!
 
 ## Run sample
 As for my setting, I get around 16.5fps and an usage of 3100MiB on GPU.
+
 ```
 ./build/examples/openpose/openpose.bin --video examples/media/video.avi
 ```
+
+<p align='center'>
+  <img src="sample/smi.png">
+</p>
+
+<p align='center'>
+  <img src="sample/example.png">
+</p>
 
 ## References
 https://github.com/CMU-Perceptual-Computing-Lab/openpose#installation-reinstallation-and-uninstallation
