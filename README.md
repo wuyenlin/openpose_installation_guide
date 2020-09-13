@@ -1,6 +1,6 @@
 # openpose_installation_guide
 
-This instruction set is based on my experience of installing Openpose on Linux. More information regarding the installation can be referred to [CMU-Perceptual-Computing-Lab's official Github page on Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md#windows-portable-demo).
+This instruction set is based on my experience of installing Openpose on Ubuntu 20.04. More information regarding the installation can be referred to [CMU-Perceptual-Computing-Lab's official Github page on Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md#windows-portable-demo).
 
 My setup is as follows:
 
@@ -21,9 +21,9 @@ For your interest, I have tried the following setups before current implementati
 1. Running **without GPU** (i.e. CPU only) results in 0.1 fps.
 
 2. Running **CUDA without cuDNN** results in the following error:
-```
-Check failed: error == cudaSuccess (2 vs. 0) out of memory
-```
+
+> Check failed: error == cudaSuccess (2 vs. 0) out of memory
+
 If you are running on GPUs with higher VRAM, you can try to free some GPU memory by [this](https://stackoverflow.com/questions/40090892/check-failed-error-cudasuccess-2-vs-0-out-of-memory). But it did not work for me.
 
 ## Clone the repository
