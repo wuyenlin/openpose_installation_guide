@@ -28,7 +28,7 @@ If you are running on GPUs with higher VRAM, you can try to free some GPU memory
 
 ## Clone the repository
 
-Clone the repository as follows:
+Clone the repository:
 
 ```
 git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose
@@ -38,36 +38,32 @@ git submodule update --init --recursive --remote
 
 ## Prerequisites
 
-Follow the instructions [here](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/prerequisites.md) and setup **Ubuntu Prerequisites** 2, 3, and 5 accordingly.
+Follow the instructions [here](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/prerequisites.md) and setup **Ubuntu Prerequisites** 2, 3, and 5 accordingly. For step 2 and 5, follow those steps and no issues should be encountered.
 
-2. Run accordingly, no issues should be encountered.
+3. Check CUDA version with `nvcc -V` and download corresponding supported version of cuDNN from [NVIDIA cuDNN official website](https://developer.nvidia.com/cudnn). 
+This step is important because the supported gcc/g++ version differ depending on your CUDA version.
+Following is an example for my case- cvDNN v7.6.5 for CUDA 10.1:
 
-3. Check CUDA version with `nvcc -V` and download corresponding supported version of cuDNN from [NVIDIA cuDNN](https://developer.nvidia.com/cudnn) official website. 
-Following is an exmplae for my case (cvDNN v7.6.5 for CUDA 10.1):
+- Download **cuDNN Runtime Library for Ubuntu18.04 (Deb)** and **cuDNN Developer Library for Ubuntu18.04 (Deb)** and run the `.deb` files.
 
-Download **cuDNN Runtime Library for Ubuntu18.04 (Deb)** and **cuDNN Developer Library for Ubuntu18.04 (Deb)** and run the `.deb` files.
-
-Download **cuDNN Library for Linux**. Unzip the `.tar` file to `/usr/local/cuda`.
+- Download **cuDNN Library for Linux**. Unzip the `.tar` file to `/usr/local/cuda`.
 
 ```
 sudo tar -xzf cudnn-10.1-linux-x64-v7.6.5.32.tgz -C /usr/local/
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ```
 
-In `~/.bashrc`, add the following lines at the end of file:
+- In `~/.bashrc`, add the following lines at the end of file:
 ```
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export PATH=/usr/local/cuda/bin:$PATH
 ```
-Finally, run `source ~/.bashrc` in terminal.
+- Finally, run `source ~/.bashrc` in terminal.
 
-This step is important because the supported gcc/g++ version differ depending on your CUDA version.
-
-5. Run accordingly, no issues should be encountered.
 
 ## Installing gcc
-As pointed out, **CUDA 10.1** supports gcc/g++ <=8, whereas the default gcc/g++ that comes with Ubuntu 20 is **gcc-9**. We need to fix that.
+As pointed out, **CUDA 10.1** supports gcc/g++ <=8, whereas the default gcc/g++ that comes with Ubuntu 20.04 is **gcc-9**. We need to fix that.
 
 ```
 sudo apt-get install gcc-7 g++-7
